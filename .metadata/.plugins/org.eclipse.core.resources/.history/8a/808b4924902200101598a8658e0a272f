@@ -1,0 +1,5 @@
+package com.eventa.booking.dto;
+
+public class NotificationRequest {
+
+}

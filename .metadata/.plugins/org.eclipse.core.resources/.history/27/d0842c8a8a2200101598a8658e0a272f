@@ -1,0 +1,5 @@
+package com.eventa.repository;
+
+public interface EventRepository {
+
+}

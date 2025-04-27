@@ -1,0 +1,5 @@
+package com.eventa.booking.client;
+
+public interface NotificationClient {
+
+}

@@ -1,0 +1,5 @@
+package com.eventa.booking.config;
+
+public class SwaggerConfig {
+
+}

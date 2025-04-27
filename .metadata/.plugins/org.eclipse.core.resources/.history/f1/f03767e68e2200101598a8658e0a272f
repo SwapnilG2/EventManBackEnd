@@ -1,0 +1,5 @@
+package com.eventa.notification.controller;
+
+public class NotificationController {
+
+}

@@ -1,0 +1,5 @@
+package com.eventa.event.dto;
+
+public class EventResponse {
+
+}

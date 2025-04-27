@@ -1,0 +1,5 @@
+package com.eventa.entity;
+
+public class Booking {
+
+}

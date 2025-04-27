@@ -1,0 +1,5 @@
+package com.eventa.booking.service;
+
+public class UserDetailsServiceConfig {
+
+}

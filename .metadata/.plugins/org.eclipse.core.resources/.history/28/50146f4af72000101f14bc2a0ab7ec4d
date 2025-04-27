@@ -1,0 +1,5 @@
+package com.eventa.user.service;
+
+public class UserService {
+
+}

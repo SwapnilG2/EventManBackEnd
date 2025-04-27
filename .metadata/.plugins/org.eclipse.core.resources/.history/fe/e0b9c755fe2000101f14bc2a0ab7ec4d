@@ -1,0 +1,5 @@
+package com.eventa.user.dto;
+
+public class AuthenticationRequest {
+
+}

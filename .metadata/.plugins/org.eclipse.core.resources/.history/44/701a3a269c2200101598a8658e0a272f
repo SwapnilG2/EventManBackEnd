@@ -1,0 +1,9 @@
+server.port=8761
+spring.application.name=registry-server
+
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+
+#Swagger ->
+springdoc.api-docs.path=/v3/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
