@@ -1,17 +1,19 @@
 package com.eventa.booking.util;
 
-import io.jsonwebtoken.*;
-import io.jsonwebtoken.security.Keys;
+import java.security.Key;
+import java.util.Base64;
+import java.util.Date;
+
 import org.springframework.stereotype.Component;
 
-import java.security.Key;
-import java.util.Date;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JwtUtil {
 
-    private static final String SECRET = "your-256-bit-secret-key-your-256-bit-secret-key"; // 256 bit ka strong secret
-    private static final long EXPIRATION_TIME = 86400000; // 1 din (24 hours)
+    private static final String SECRET ="mysecretkeyformyeventapp1234567890";
+    private static final long EXPIRATION_TIME = 1000*60*60*24;
 
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(SECRET.getBytes());

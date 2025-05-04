@@ -1,5 +1,8 @@
 package com.eventa.user.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,8 +40,11 @@ public class AuthService {
         User user = userRepository.findByEmail(request.getEmail())
                         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        String token = jwtUtil.generateToken(user.getEmail());
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("role", user.getRole().name()); 
 
+        String token = jwtUtil.generateToken(claims, user.getEmail());
+        
         return new AuthenticationResponse(token);
     }
 }

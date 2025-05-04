@@ -2,8 +2,8 @@ package com.eventa.user.util;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Jwts;
@@ -14,10 +14,10 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtil {
 	
 //	@Autowired
-	private String SECRET = "mysecretkeyformyeventapp1234567890"; // 🔐 Use long key in real apps
+	private String SECRET = "mysecretkeyformyeventapp1234567890";
     
 //	@Autowired
-	private long EXPIRATION_TIME = 1000*60*60*24; // 1 day in ms
+	private long EXPIRATION_TIME = 1000*60*60*24; 
 	
 	private Key key;
 	
@@ -25,8 +25,9 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
-    public String generateToken(String email) {
+    public String generateToken(Map<String, Object> extraClaims, String email) {
         return Jwts.builder()
+        		.setClaims(extraClaims)
                 .setSubject(email)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
@@ -42,6 +43,16 @@ public class JwtUtil {
                 .getBody()
                 .getSubject();
     }
+    
+    public String extractRole(String token) {
+        return (String) Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .get("role");
+    }
+
 
     public boolean isTokenValid(String token, String email) {
         return extractEmail(token).equals(email) && !isTokenExpired(token);

@@ -1,8 +1,0 @@
-package com.eventa.entity;
-
-public enum BookingStatus {
-	PENDING,
-    CONFIRMED,
-    CANCELLED,
-    COMPLETED
-}

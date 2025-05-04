@@ -10,6 +10,7 @@ import com.eventa.user.service.AuthService;
 
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor

@@ -11,8 +11,10 @@ public class UserDetailsServiceConfig {
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return new InMemoryUserDetailsManager(User.withUsername("dummy@example.com")
-				.password("{noop}password") 																				// encoding
-				.roles("ATTENDEE").build());
+		return username -> {
+
+			return org.springframework.security.core.userdetails.User.withUsername(username).password("")
+					.authorities("ROLE_USER").build();
+		};
 	}
 }

@@ -1,5 +1,6 @@
 package com.eventa.booking.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.eventa.booking.service.UserDetailsServiceConfig;
+
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -19,6 +22,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
+	@Autowired
+	private UserDetailsServiceConfig userDetailsServiceConfig;
+	
     private final JwtAuthFilter jwtAuthFilter;
 
     @Bean
@@ -52,4 +58,7 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
+    
+
 }

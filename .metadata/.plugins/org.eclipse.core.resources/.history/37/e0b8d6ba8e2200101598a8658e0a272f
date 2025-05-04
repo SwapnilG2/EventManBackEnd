@@ -1,5 +1,0 @@
-package com.eventa.notification.dto;
-
-public class NotificationRequest {
-
-}

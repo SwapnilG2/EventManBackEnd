@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class UserRegisterRequest {
 	private String fullName;
     private String email;
+    private Long phone;
     private String password;
     private Role role;  // User can choose: ATTENDEE or ORGANIZER
 }
